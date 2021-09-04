@@ -1,8 +1,12 @@
 package com.example.bean;
 
+import javax.validation.constraints.NotNull;
+
 public class Customer {
 	
+	@NotNull(message = "customerId can not be null")
 	public Integer customerId;
+	@NotNull(message = "password can not be null")
 	public String password;
 	/**
 	 * @return the customerId

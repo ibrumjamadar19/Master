@@ -2,15 +2,22 @@ package com.example.bean;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 
 @Entity
 public class FevoriteBankDetails {
-  private Integer id;
+  	
+  private @Id @GeneratedValue Integer id;
   private Integer customerId;
+  @NotNull(message = "FevoriteBankName can not be null")
   private String FevoriteBankName;
+  @NotNull(message = "FevoriteAccountNumber can not be null")
+  @Size(max=20, message = "FevoriteAccountNumber size can not be more than 20")
   private String FevoriteAccountNumber;
+  @NotNull(message = "FevoriteAccountName can not be null")
   private String FevoriteAccountName;
   
   public FevoriteBankDetails() {
